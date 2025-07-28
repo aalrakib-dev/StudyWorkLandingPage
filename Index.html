@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guigang Peizheng Digital Vocational and Technical School - EduExpress International</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #003366 0%, #336699 100%);
+            color: white;
+            padding: 6rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"%3E%3Cpath d="M11 0h1v60h-1V0zm6 0h1v60h-1V0zm6 0h1v60h-1V0zm6 0h1v60h-1V0zm6 0h1v60h-1V0zm6 0h1v60h-1V0zm6 0h1v60h-1V0zm6 0h1v60h-1V0zM0 11h60v1H0zm0 6h60v1H0zm0 6h60v1H0zm0 6h60v1H0zm0 6h60v1H0zm0 6h60v1H0zm0 6h60v1H0zm0 6h60v1H0z"/%3E%3C/g%3E%3C/svg%3E');
+            z-index: 0;
+            opacity: 0.3;
+        }
+        .hero-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            color: #003366;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background-color: #3399CC;
+            border-radius: 2px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .btn-primary {
+            background-color: #3399CC;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            margin-top: 1.5rem;
+        }
+        .btn-primary:hover {
+            background-color: #2a7da3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+        .btn-secondary {
+            background-color: #f6ad55;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            margin-top: 1.5rem;
+        }
+        .btn-secondary:hover {
+            background-color: #ed8936;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+        .feature-icon {
+            color: #003366;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-align: center;
+        }
+        .footer {
+            background-color: #003366;
+            color: white;
+            padding: 3rem 1rem;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .edu-express-section {
+            background-color: #e0f2fe;
+            padding: 4rem 1rem;
+            border-radius: 20px;
+            margin: 4rem auto;
+            max-width: 6xl;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #bfdbfe;
+            text-align: center;
+        }
+        .edu-express-section .section-title::after {
+            background-color: #003366;
+        }
+        .highlight-box {
+            background-color: #ffffff;
+            border: 2px solid #3399CC;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus {
+            outline: none;
+            border-color: #3399CC;
+            box-shadow: 0 0 0 3px rgba(51, 153, 204, 0.3);
+        }
+        .benefit-icon {
+            font-size: 3rem;
+            color: #003366;
+            margin-bottom: 1rem;
+        }
+        section {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-bottom: 4rem;
+        }
+        .max-w-6xl {
+            max-width: 1152px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .text-left {
+            text-align: left;
+        }
+        .text-center {
+            text-align: center;
+        }
+
+        /* Styling for the All-Inclusive Service Package section */
+        .service-package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+            justify-items: center;
+            align-items: start;
+        }
+        .service-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .service-item:hover {
+            background-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .service-item .feature-icon {
+            color: white;
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+        }
+        .service-item p {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        .social-icon {
+            font-size: 3rem;
+            color: #003366;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .social-icon:hover {
+            color: #3399CC;
+            transform: translateY(-5px);
+        }
+        .logo-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .logo-header img {
+            max-height: 90px;
+            width: auto;
+        }
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+            align-items: start;
+        }
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo Header -->
+    <div class="logo-header">
+        <img src="https://i.ibb.co/C3PHVgMx/301753689136-pic-removebg-preview.png" alt="Guigang Peizheng Digital Vocational and Technical School Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x80/003366/ffffff?text=School+Logo';">
+        <img src="https://eduexpressint.com/wp-content/uploads/2023/04/edu-express-logo.png" alt="EduExpress International Logo" class="ml-4">
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+            Guigang Peizheng Digital Vocational and Technical School
+        </h1>
+        <p class="text-lg sm:text-xl mb-8 max-w-3xl mx-auto">
+            Your Gateway to a Brighter Future in China!
+            <br class="hidden sm:inline">
+            <span class="font-bold text-yellow-200 text-2xl">Study + Work: Opportunities for Students Across Asia!</span>
+        </p>
+        <a href="#lead-form" class="btn-primary">Book a Free Call & Transform Your Future!</a>
+    </header>
+
+    <!-- About Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="section-title mb-12">About Our Program</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4 text-left">
+                        Located in Guigang City, Guangxi Province, China, just 2.5 hours from Guangzhou (a Major Business Hub), our school offers a dynamic <strong>3-Year Study + Work Program</strong>. This unique program is meticulously designed to equip you with cutting-edge practical skills and invaluable real-world experience, setting you apart in the global job market.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed text-left">
+                        Experience a streamlined application process with a <strong>quick pre-admission decision within just 1 week</strong> after application submission. Embark on an exciting educational journey that seamlessly integrates high-quality vocational training with impactful paid work opportunities.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <!-- Placeholder for AI-Generated Image -->
+                    <img src="https://placehold.co/500x300/003366/ffffff?text=Student+Life+in+China" alt="AI Generated Image of Student Life" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EduExpress International Section -->
+    <section class="edu-express-section mx-auto px-4">
+        <div class="text-center">
+            <h2 class="section-title text-blue-800 mb-8">Your Exclusive Partner in Bangladesh & Asia</h2>
+            <p class="text-xl text-blue-700 mb-6 max-w-3xl mx-auto font-semibold">
+                <strong>EduExpress International</strong> is proudly the <strong>sole authorized agent</strong> in Dhaka, Bangladesh, for the Guigang Peizheng Digital Vocational and Technical School's 3-Year Study + Work Program, serving students across Asia.
+            </p>
+            <p class="text-lg text-blue-600 mb-8 max-w-4xl mx-auto">
+                We are wholeheartedly committed to providing unparalleled guidance and support to students throughout every stage of your journey – from initial application and visa procedures to job services and pre-departure preparations. We also help you discover scholarships up to 100% and offer <strong>No File Opening Charge!</strong> Your bright and prosperous future in China begins with our expert assistance!
+            </p>
+            <a href="#lead-form" class="btn-secondary">Secure Your Spot with EduExpress Today!</a>
+        </div>
+    </section>
+
+    <!-- Why Study in China Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="section-title mb-12">Why Study in China?</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card">
+                    <span class="benefit-icon">🎓</span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">World-Class Education</h3>
+                    <p class="text-gray-600">Chinese universities are rapidly rising in global rankings.</p>
+                </div>
+                <div class="card">
+                    <span class="benefit-icon">💸</span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Earn While You Learn</h3>
+                    <p class="text-gray-600">Your program salary can cover all tuition fees and living costs!</p>
+                </div>
+                <div class="card">
+                    <span class="benefit-icon">🗣️</span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Learn Mandarin</h3>
+                    <p class="text-gray-600">Acquire a valuable skill in the global business landscape.</p>
+                </div>
+                <div class="card">
+                    <span class="benefit-icon">🏯</span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Rich Cultural History</h3>
+                    <p class="text-gray-600">Immerse yourself in a vibrant and ancient culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Majors Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="section-title mb-12">Cutting-Edge Majors</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card">
+                    <span class="feature-icon mb-4">⚙️</span>
+                    <h3 class="text-xl font-bold text-gray-800">Mechanical & Electrical Technology (AMET)</h3>
+                    <p class="text-gray-600 mt-2">Master the fundamentals of modern industrial technology.</p>
+                </div>
+                <div class="card">
+                    <span class="feature-icon mb-4">🧠</span>
+                    <h3 class="text-xl font-bold text-gray-800">Application of Artificial Intelligence Technology (AoAI)</h3>
+                    <p class="text-gray-600 mt-2">Step into the future with expertise in AI applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Opportunities & Salary Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="section-title mb-12 text-indigo-700">Work & Earn: Your Path to Financial Independence</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center">
+                    <img src="https://placehold.co/500x300/764ba2/ffffff?text=High+Paying+Work" alt="Work Opportunities" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4 text-left">
+                        Our program uniquely integrates extensive practical work experience. Students engage in paid work for <strong>8 hours/day, 6 days/week</strong>, primarily in thriving Mobile Phone Factories & Similar Industries. This isn't just a job; it's a vital part of your learning, preparing you for immediate career success.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4 text-left">
+                        You'll gain hands-on skills in crucial positions such as Quality Control, Electrical Wiring, Product Packaging, and Assembly Line Work. This immersive experience ensures you graduate with a strong resume and practical expertise.
+                    </p>
+                    <div class="highlight-box mt-6">
+                        <p class="text-2xl font-extrabold text-indigo-700 mb-2">
+                            Exceptional Earning Potential:
+                        </p>
+                        <p class="text-4xl font-extrabold text-green-600 leading-tight">
+                            ¥3,500 to ¥4,500 RMB/month <span class="text-xl font-semibold text-gray-600">(Performance-based Salary)</span>
+                        </p>
+                        <p class="text-lg text-gray-700 mt-3">
+                            Work for <strong>4 to 5 months of paid work per semester</strong>, ensuring substantial earnings that can significantly offset your living and study costs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Costs Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="section-title mb-12">Program & Living Costs</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Annual Tuition & Accommodation</h3>
+                    <p class="text-3xl font-bold text-indigo-600 mb-2">¥10,000 RMB/year</p>
+                    <p class="text-gray-600">(Monthly payment option available)</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Initial Fees (After Pre-Approval)</h3>
+                    <ul class="text-left text-gray-700 space-y-2">
+                        <li><strong class="text-indigo-600">Application Fee:</strong> ¥400 RMB</li>
+                        <li><strong class="text-indigo-600">Registration Fee:</strong> ¥1,000 RMB</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Registration Time Costs (Estimated)</h3>
+                    <ul class="text-left text-gray-700 space-y-2">
+                        <li><strong class="text-indigo-600">Medical Checkup:</strong> ¥350 RMB</li>
+                        <li><strong class="text-indigo-600">Tuition + Hostel (1st month):</strong> ¥1,000 RMB</li>
+                        <li><strong class="text-indigo-600">Visa Fee/Residence Permit:</strong> ¥400/Year</li>
+                        <li><strong class="text-indigo-600">Insurance:</strong> ¥800/Year</li>
+                    </ul>
+                </div>
+                <div class="card lg:col-span-2 mx-auto w-full">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Additional One-Time Costs (Estimated)</h3>
+                    <ul class="text-left text-gray-700 space-y-2">
+                        <li><strong class="text-indigo-600">Bedding Set:</strong> ¥100-¥200 RMB</li>
+                        <li><strong class="text-indigo-600">SIM Card:</strong> ¥100 RMB</li>
+                        <li><strong class="text-indigo-600">Food Expenses (Monthly):</strong> ¥400 - ¥500 RMB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Requirements & Documents Section -->
+    <section id="application" class="py-16 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="section-title mb-12">Application & Requirements</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Requirements</h3>
+                    <ul class="text-left text-gray-700 space-y-2">
+                        <li><strong class="text-indigo-600">Age:</strong> 18 to 30 years old</li>
+                        <li><strong class="text-indigo-600">Encouraged:</strong> Students from Asian Countries</li>
+                        <li><strong class="text-indigo-600">Initial Application & Registration Fee:</strong> ¥1,400 RMB (Required for formal admission and JW202 Visa Form issuance)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Documents Required</h3>
+                    <ul class="text-left text-gray-700 space-y-2">
+                        <li>Valid Passport</li>
+                        <li>Academic Certificates & Transcript</li>
+                        <li>Passport-size Photographs</li>
+                        <li>Police Clearance Certificate</li>
+                        <li>Bank Statement (Financial Proof)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Service Package Section -->
+    <section class="py-16 px-4 bg-indigo-700 text-white rounded-t-3xl">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12 relative inline-block">
+                Our All-Inclusive Service Package For Bangladeshi Students
+                <span class="absolute left-1/2 bottom-[-10px] transform -translate-x-1/2 w-20 h-1 bg-white rounded-full"></span>
+            </h2>
+            <div class="service-package-grid">
+                <div class="service-item">
+                    <span class="feature-icon">📝</span>
+                    <p>Complete Application Processing</p>
+                </div>
+                <div class="service-item">
+                    <span class="feature-icon">🩺</span>
+                    <p>Medical Check-up</p>
+                </div>
+                <div class="service-item">
+                    <span class="feature-icon">🛂</span>
+                    <p>Visa (Embassy) Fee</p>
+                </div>
+                <div class="service-item">
+                    <span class="feature-icon">✈️</span>
+                    <p>Air Ticket</p>
+                </div>
+                <div class="service-item">
+                    <span class="feature-icon">🚆</span>
+                    <p>Train Ticket (Guangzhou to School)</p>
+                </div>
+                <div class="service-item">
+                    <span class="feature-icon">👋</span>
+                    <p>Airport Pickup Service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Generation Form Section -->
+    <section id="lead-form" class="py-16 px-4 bg-blue-100">
+        <div class="max-w-3xl mx-auto text-center card">
+            <h2 class="section-title text-blue-800 mb-8">Book a Free Call Today!</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                Fill out the form below and an EduExpress International representative will contact you shortly to guide you through the next steps.
+            </p>
+            <form action="#" method="POST" class="space-y-4 text-left">
+                <div>
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone/WhatsApp Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="e.g., +88017XXXXXXXX" required>
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Your Message (Optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us more about your interest..."></textarea>
+                </div>
+                <div class="text-center pt-4">
+                    <button type="submit" class="btn-primary">Book My Free Call</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- EduExpress International Contact Section -->
+    <section id="edu-express-contact" class="py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto text-center card">
+            <h2 class="section-title mb-8">Connect with EduExpress International</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                As the sole authorized agent in Bangladesh, EduExpress International is your dedicated partner in making your dream of studying and working in China a reality.
+            </p>
+            <div class="contact-info-grid mb-8">
+                <div class="contact-item">
+                    <p class="text-xl font-semibold text-gray-800 mb-2">📞 Phone</p>
+                    <a href="tel:+8801983333566" class="text-indigo-600 hover:underline text-lg">+880 1983-333566</a>
+                    <a href="tel:+8801329663505" class="text-indigo-600 hover:underline text-lg">+880 1329-663505</a>
+                </div>
+                <div class="contact-item">
+                    <p class="text-xl font-semibold text-gray-800 mb-2">📱 WhatsApp</p>
+                    <a href="https://wa.me/8801983333566" target="_blank" class="text-green-600 hover:underline text-lg">+880 1983-333566</a>
+                    <a href="https://wa.me/8801329663505" target="_blank" class="text-green-600 hover:underline text-lg">+880 1329-663505</a>
+                </div>
+                <div class="contact-item">
+                    <p class="text-xl font-semibold text-gray-800 mb-2">📧 Email</p>
+                    <a href="mailto:info@eduexpressint.com" class="text-indigo-600 hover:underline text-lg">info@eduexpressint.com</a>
+                </div>
+                <div class="contact-item">
+                    <p class="text-xl font-semibold text-gray-800 mb-2">📍 Address</p>
+                    <p class="text-lg text-gray-700 text-center">House: 12/1, Ground Floor, Road: 4/A, Dhanmondi, Dhaka - 1209</p>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Connect on Social Media</h3>
+                <div class="flex justify-center gap-8 flex-wrap">
+                    <div class="flex flex-col items-center">
+                        <img src="https://i.ibb.co/whVJbTpY/image.png" alt="WeChat QR Code" class="rounded-lg shadow-md mb-2 w-32 h-32 object-contain">
+                        <p class="text-sm text-gray-600">Scan for WeChat</p>
+                    </div>
+                    <!-- Social Media Icons -->
+                    <a href="https://www.facebook.com/eduexpressint" target="_blank" aria-label="Facebook" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="inline-block w-10 h-10"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.72.242-.72.731v1.177h2.05l-.232 2.028h-1.818v5.514h-2.408v-5.514h-1.818v-2.028h1.818v-1.107c0-1.783 1.16-2.915 3.043-2.915h2.05v2.188z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/eduexpressint" target="_blank" aria-label="Instagram" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="inline-block w-10 h-10"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.251-.149-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/eduexpress/" target="_blank" aria-label="LinkedIn" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="inline-block w-10 h-10"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.49-1.1-1.093 0-.603.493-1.093 1.1-1.093s1.1.49 1.1 1.093c0 .603-.493 1.093-1.1 1.093zm7 6.891h-2v-3.374c0-.811-.016-1.859-1.13-1.859-1.131 0-1.305.883-1.305 1.805v3.428h-2v-6h1.996v.857h.027c.331-.648.909-1.305 2.006-1.305 2.13 0 2.529 1.488 2.529 3.618v4.129h-2z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <a href="mailto:info@eduexpressint.com" class="btn-primary">Email Us Directly!</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-lg mb-4">&copy; 2025 Guigang Peizheng Digital Vocational and Technical School, represented by EduExpress International.</p>
+            <p class="text-md mb-2">Location: Guigang City, Guangxi Province, China</p>
+            <p class="text-md">EduExpress International Office: House: 12/1, Ground Floor, Road: 4/A, Dhanmondi, Dhaka - 1209</p>
+        </div>
+    </footer>
+
+</body>
+</html>
